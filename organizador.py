@@ -15,7 +15,9 @@ def identifica_arquivo(path_pasta):
             mover_para_pasta(arquivo, nome_pasta, path_pasta)
 
 def mover_para_pasta(arquivo, nome_pasta, path_pasta):
-    novo_path = f"{path_pasta}/{nome_pasta}"
+    #novo_path = f"{path_pasta}/{nome_pasta}"
+    # os.path.join identifica o sistema operacional e coloca a barra para nao termos problemas
+    novo_path = os.path.join(path_pasta,nome_pasta)
     if not pasta_existe(nome_pasta, path_pasta):
         cria_pasta(nome_pasta)
     else:
