@@ -14,6 +14,10 @@ window = Tk()
 window.title("Organizador de pasta")
 window.config(padx=10, pady=50)
 
+# icone sistema
+icone = tk.PhotoImage(file="icone.png")
+window.iconphoto(False,icone)
+
 # Labels
 website_label = Label(text="Path arquivo:")
 website_label.grid(row=2, column=0)
