@@ -1,6 +1,8 @@
 import os
 from extensoes import extensoes_arquivo
 from funcoes import *
+from tkinter import DISABLED, NORMAL, END
+
 
 
 def identifica_arquivo(path_pasta):
@@ -28,8 +30,20 @@ def mover_para_pasta(arquivo, nome_pasta, path_pasta):
     mudar_diretorio_para(path_pasta)
     move_arquivo(arquivo, novo_path)
     informar(arquivo, novo_path)
+    mostrar_rota_final(janela_de_saida,F"'{arquivo}' Movido para {nome_pasta}")
             
-def organiza_pasta(entrada):
+def organiza_pasta(entrada, saida):
     path_pasta = entrada.get()
+    global janela_de_saida 
+    janela_de_saida = saida
     mudar_diretorio_para(path_pasta)
     identifica_arquivo(path_pasta)
+
+
+def mostrar_rota_final(janela, mensagem):
+    print(type(janela))
+    janela.config(state= NORMAL)
+    janela.insert(END,mensagem + "\n")
+    janela.config(state= DISABLED)
+
+janela_de_saida = None
