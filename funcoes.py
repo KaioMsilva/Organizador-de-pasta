@@ -10,9 +10,6 @@ def pasta_existe(nome_pasta, path_pasta):
 def arquivo_existe(arquivo):
     return  os.path.isfile(arquivo)
 
-def informar(arquivo, nome_pasta):
-    print(F"'{arquivo}' Movido para {nome_pasta}")
-
 def mudar_diretorio_para(path):
     os.chdir(path)
 

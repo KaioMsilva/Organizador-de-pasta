@@ -29,7 +29,7 @@ def mover_para_pasta(arquivo, nome_pasta, path_pasta):
             return
     mudar_diretorio_para(path_pasta)
     move_arquivo(arquivo, novo_path)
-    informar(arquivo, novo_path)
+    print(F"'{arquivo}' Movido para {novo_path}")
     mostrar_rota_final(janela_de_saida,F"'{arquivo}' Movido para {nome_pasta}")
             
 def organiza_pasta(entrada, saida):
