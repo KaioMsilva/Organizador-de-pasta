@@ -17,8 +17,8 @@ def inicia_organizador():
     janela.config(padx=20, pady=50)
 
     # icone sistema
-    icone = tk.PhotoImage(file="icone.png")
-    janela.iconphoto(False,icone)
+    # icone = tk.PhotoImage(file="icone.png")
+    # janela.iconphoto(False,icone)
 
     # Labels
     janela_label = Label(master=janela,text="Path arquivo:")
