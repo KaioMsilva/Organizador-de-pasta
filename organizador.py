@@ -33,17 +33,17 @@ def mover_para_pasta(arquivo, nome_pasta, path_pasta):
     mostrar_rota_final(janela_de_saida,F"'{arquivo}' Movido para {nome_pasta}")
             
 def organiza_pasta(entrada, saida):
-    path_pasta = entrada.get()
+    path_pasta = entrada
     global janela_de_saida 
     janela_de_saida = saida
+    saida.clear()
     mudar_diretorio_para(path_pasta)
     identifica_arquivo(path_pasta)
 
 
 def mostrar_rota_final(janela, mensagem):
-    print(type(janela))
-    janela.config(state= NORMAL)
-    janela.insert(END,mensagem + "\n")
-    janela.config(state= DISABLED)
+    # janela.config(state= NORMAL)
+    janela.append(mensagem + "\n")
+    # janela.config(state= DISABLED)
 
-janela_de_saida = None
+# janela_de_saida = None
