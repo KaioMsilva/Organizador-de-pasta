@@ -8,6 +8,12 @@ from ui_pyside import Organizador
 
 if __name__ == '__main__':
     app = QApplication([])
+    
+    with open("style/style.qss", "r") as arquivo:
+        app.setStyleSheet(arquivo.read())
+    
+    
+    
     organizador = Organizador()
     organizador.show()
     app.exec()

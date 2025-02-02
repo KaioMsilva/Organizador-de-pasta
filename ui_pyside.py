@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QFileDialog, QCheckBox, QTextBrowser,QComboBox ,QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QListWidget, QListWidgetItem, QMessageBox, QInputDialog
-from organizador import organiza_pasta
+from PySide6.QtGui import QIcon
+from acoes.organizador import organiza_pasta
 
 class Organizador(QWidget):
     def __init__(self):
@@ -7,12 +8,14 @@ class Organizador(QWidget):
         self.ui_organizador()
         
     def ui_organizador(self):
+        self.setObjectName("layout_principal")
         self.layout_principal = QHBoxLayout()
-        self.setWindowTitle("Organizador de pastas")
-        self.setGeometry(100,100, 300, 100)
+        self.setWindowTitle(" ")
+        self.setGeometry(100,100, 706, 404)
         
         self.layout_principal.addLayout(self.formulario())
         self.layout_principal.addLayout(self.exibir_dados())
+        
         
         
         self.setLayout(self.layout_principal)
@@ -25,7 +28,7 @@ class Organizador(QWidget):
     
     def input_usuario(self):
         layout_input = QVBoxLayout()
-        label_input = QLabel("Informe o caminho")
+        label_input = QLabel("Caminho Da Pasta")
         self.input_rota = QLineEdit()
         
         layout_input.addWidget(label_input)
@@ -41,7 +44,8 @@ class Organizador(QWidget):
     
     def botoes(self):
         layout_botoes = QVBoxLayout()
-        botao_localizar = QPushButton("localizar")
+        botao_localizar = QPushButton("")
+        botao_localizar.setIcon(QIcon("icones/pasta_ carton_vazia.png"))
         botao_localizar.clicked.connect(self.localizar)
         botao_organizar = QPushButton("Organizar")
         botao_organizar.clicked.connect(self.organizar_pasta)
