@@ -16,31 +16,33 @@ class Organizador(QWidget):
         self.layout_principal = QHBoxLayout()
         
         # titulo e tamanho 
-        self.setWindowTitle(" ")
+        self.setWindowTitle("Organizador de Pasta")
         self.setGeometry(100,100, 706, 404)
         
-        # Criando formulario
-        
-        # Instanciando QWidget, com ele é possivel colocar largura
-        self.formulario_container = QWidget()
-        self.formulario_container.setMaximumWidth(200)
-        
-        # Definindo formulario como layout do Widget, para pegar a largura definida a cima 
-        layout_formulario = self.formulario()
-        self.formulario_container.setLayout(layout_formulario)
-                
-        # Adicionando Widget no layout principal
-        self.layout_principal.addWidget(self.formulario_container)
+        # Adicionando Widget ou o layout no layout principal
+        self.layout_principal.addWidget(self.layout_formulario_usuario())
         self.layout_principal.addLayout(self.exibir_dados())
         
         # Definindo layout principal
         self.setLayout(self.layout_principal)
         
+    def layout_formulario_usuario(self):
+        # Criando formulario
+    
+        # Instanciando QWidget, com ele é possivel colocar largura
+        formulario_container = QWidget()
+        formulario_container.setMaximumWidth(200)
+        # Definindo formulario como layout do Widget, para pegar a largura definida a cima 
+        layout_formulario = self.formulario()
+        formulario_container.setLayout(layout_formulario)
+        return formulario_container
+    
     def formulario(self):
         form = QVBoxLayout()
         
         # Adicionando outos componentes do formulario
         form.addWidget(self.input_usuario())
+        form.addLayout(self.informacoes_app())
         # form.addLayout(self.botoes())
         return form
     
@@ -79,6 +81,15 @@ class Organizador(QWidget):
         
         # return layout_input
         return container_layout_input
+    
+    def informacoes_app(self):
+        layout_informacoes = QVBoxLayout()
+        
+        versao = QLabel("V1.0")
+        
+        layout_informacoes.addWidget(versao)
+        
+        return layout_informacoes
     
     # def botoes(self):
     #     # Layout vertical
