@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QFileDialog, QCheckBox, QTextBrowser,QComboBox ,QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QListWidget, QListWidgetItem, QMessageBox, QInputDialog
+from PySide6.QtWidgets import QFileDialog, QTextBrowser, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
 from acoes.organizador import organiza_pasta
 
 class Organizador(QWidget):
@@ -85,9 +86,10 @@ class Organizador(QWidget):
     def informacoes_app(self):
         layout_informacoes = QVBoxLayout()
         
+        layout_informacoes.addStretch()
         versao = QLabel("V1.0")
         
-        layout_informacoes.addWidget(versao)
+        layout_informacoes.addWidget(versao, alignment=Qt.AlignHCenter)
         
         return layout_informacoes
     
