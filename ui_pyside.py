@@ -66,12 +66,14 @@ class Organizador(QWidget):
         
         # Input
         self.input_rota = QLineEdit()
-        self.input_rota.setPlaceholderText("Diretório")
+        self.input_rota.setObjectName("Label_input_rota")
+        self.input_rota.setPlaceholderText("Informe o caminho")
         layout_input.addWidget(self.input_rota)
         
         
         # Titulo Botão localizar pasta
         botao_localizar = QPushButton("")
+        botao_localizar.setObjectName("Botao_localizar")
         # Icone botão
         botao_localizar.setIcon(QIcon("icones/pasta_ carton_vazia.png"))
         # Acão botão Localizar
@@ -84,10 +86,12 @@ class Organizador(QWidget):
         
         # Titulo bptão Organizar pasta
         botao_organizar = QPushButton("Organizar")
+        botao_organizar.setObjectName("Botao_organizar")
+        botao_organizar.setFixedSize(100,35)
         # Ação botão organizar 
         botao_organizar.clicked.connect(self.organizar_pasta)    
         
-        layout_formulario.addWidget(botao_organizar)
+        layout_formulario.addWidget(botao_organizar, alignment=Qt.AlignHCenter)
         
         # return layout_input
         return layout_formulario

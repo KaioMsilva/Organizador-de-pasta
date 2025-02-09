@@ -1,3 +1,10 @@
+*{
+    font-family: "Verdana";
+    font-weight: bold;
+    color: white;
+
+}
+
 #layout_principal{
     background-color: #252B36
      ;
@@ -8,6 +15,23 @@
     border-radius : 5px
 }
 
+#Label_input_rota{
+    font-size: 10px;
+    padding: 5px;
+    border : none;
+    background-color: #252B36
+}
+
+#Botao_localizar{
+    background-color: #252B36;
+    border: none;
+}
+
+
+#Botao_organizar{
+    background-color: #252B36;
+}
+
 /* verificar depois, não funcionou */
 #Quadro_de_dados{
     border-radius : 5px;
@@ -16,12 +40,5 @@
 
 QLabel {
     font-size: 18px;
-    font-family: "Verdana";
-    font-weight: bold;
-    color: white;
 }
 
-QLineEdit{
-    border : none;
-    background-color: #252B36
-}
