@@ -33,6 +33,7 @@ class Organizador(QWidget):
         # Instanciando QWidget, com ele é possivel colocar largura
         formulario_container = QWidget()
         formulario_container.setMaximumWidth(200)
+        formulario_container.setMinimumHeight(404)
         formulario_container.setObjectName("Formulario_container")
         # Definindo formulario como layout do Widget, para pegar a largura definida a cima 
         layout_formulario = self.formulario()
@@ -43,24 +44,30 @@ class Organizador(QWidget):
         form = QVBoxLayout()
         
         # Adicionando outos componentes do formulario
-        form.addWidget(self.input_usuario())
+        form.addLayout(self.input_usuario())
         form.addLayout(self.informacoes_app())
         # form.addLayout(self.botoes())
         return form
     
+    
     def input_usuario(self):
-        container_layout_input = QWidget()
-        container_layout_input.setMaximumHeight(100)
+        # container_layout_input = QWidget()
+        # container_layout_input.setMaximumHeight(100)
         
-        # Layout vertical
-        layout_input = QVBoxLayout()
+        layout_formulario = QVBoxLayout()
         
         # Texto
         label_input = QLabel("Caminho Pasta")
+        layout_formulario.addWidget(label_input, alignment=Qt.AlignHCenter)
+        
+        # Layout Horizontal
+        layout_input = QHBoxLayout()
+        
         
         # Input
         self.input_rota = QLineEdit()
         self.input_rota.setPlaceholderText("Diretório")
+        layout_input.addWidget(self.input_rota)
         
         
         # Titulo Botão localizar pasta
@@ -70,21 +77,21 @@ class Organizador(QWidget):
         # Acão botão Localizar
         botao_localizar.clicked.connect(self.localizar)
         
+        # adiciona Widget ao layout
+        layout_input.addWidget(botao_localizar)
+        layout_formulario.addLayout(layout_input)
+        
+        
         # Titulo bptão Organizar pasta
         botao_organizar = QPushButton("Organizar")
         # Ação botão organizar 
-        botao_organizar.clicked.connect(self.organizar_pasta)
+        botao_organizar.clicked.connect(self.organizar_pasta)    
         
-        # adiciona Widget ao layout
-        layout_input.addWidget(label_input, alignment=Qt.AlignHCenter)
-        layout_input.addWidget(self.input_rota)
-        layout_input.addWidget(botao_localizar)
-        layout_input.addWidget(botao_organizar)
-        container_layout_input.setLayout(layout_input)
-    
+        layout_formulario.addWidget(botao_organizar)
         
         # return layout_input
-        return container_layout_input
+        return layout_formulario
+    
     
     def informacoes_app(self):
         layout_informacoes = QVBoxLayout()
@@ -120,10 +127,10 @@ class Organizador(QWidget):
     def exibir_dados(self):
         # Layout vertical
         layout_saida_dados = QVBoxLayout()
-        layout_saida_dados.setObjectName("Exibir_dados")
-        
+                
         # Tabela para exibir informação
         self.quadro_de_dados = QTextBrowser() 
+        self.quadro_de_dados.setObjectName("Quadro_de_dados")
         
         # adiciona Widget ao layout
         layout_saida_dados.addWidget(self.quadro_de_dados)

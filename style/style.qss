@@ -9,8 +9,9 @@
 }
 
 /* verificar depois, não funcionou */
-#Exibir_dados{
-    border-radius : 5px
+#Quadro_de_dados{
+    border-radius : 5px;
+    background-color: #324261;
 }
 
 QLabel {
