@@ -33,6 +33,7 @@ class Organizador(QWidget):
         # Instanciando QWidget, com ele é possivel colocar largura
         formulario_container = QWidget()
         formulario_container.setMaximumWidth(200)
+        formulario_container.setObjectName("Formulario_container")
         # Definindo formulario como layout do Widget, para pegar a largura definida a cima 
         layout_formulario = self.formulario()
         formulario_container.setLayout(layout_formulario)
@@ -55,10 +56,12 @@ class Organizador(QWidget):
         layout_input = QVBoxLayout()
         
         # Texto
-        label_input = QLabel("Caminho Da Pasta")
+        label_input = QLabel("Caminho Pasta")
         
         # Input
         self.input_rota = QLineEdit()
+        self.input_rota.setPlaceholderText("Diretório")
+        
         
         # Titulo Botão localizar pasta
         botao_localizar = QPushButton("")
@@ -73,7 +76,7 @@ class Organizador(QWidget):
         botao_organizar.clicked.connect(self.organizar_pasta)
         
         # adiciona Widget ao layout
-        layout_input.addWidget(label_input)
+        layout_input.addWidget(label_input, alignment=Qt.AlignHCenter)
         layout_input.addWidget(self.input_rota)
         layout_input.addWidget(botao_localizar)
         layout_input.addWidget(botao_organizar)
@@ -117,6 +120,7 @@ class Organizador(QWidget):
     def exibir_dados(self):
         # Layout vertical
         layout_saida_dados = QVBoxLayout()
+        layout_saida_dados.setObjectName("Exibir_dados")
         
         # Tabela para exibir informação
         self.quadro_de_dados = QTextBrowser() 

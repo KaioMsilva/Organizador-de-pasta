@@ -1,3 +1,26 @@
 #layout_principal{
-    background-color: #252B36;
+    background-color: #252B36
+     ;
+}
+
+#Formulario_container{
+    background-color: #2c3442;
+    border-radius : 5px
+}
+
+/* verificar depois, não funcionou */
+#Exibir_dados{
+    border-radius : 5px
+}
+
+QLabel {
+    font-size: 18px;
+    font-family: "Verdana";
+    font-weight: bold;
+    color: white;
+}
+
+QLineEdit{
+    border : none;
+    background-color: #252B36
 }
