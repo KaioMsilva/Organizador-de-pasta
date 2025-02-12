@@ -76,7 +76,7 @@ class Organizador(QWidget):
         botao_localizar = QPushButton("")
         botao_localizar.setObjectName("Botao_localizar")
         # Icone botão
-        botao_localizar.setIcon(QIcon("icones/pasta_ carton_vazia.png"))
+        botao_localizar.setIcon(QIcon("/home/Projetos/Meus projetos pessoais/Organizador-de-pasta/src/assets/pasta_carton_vazia.png"))
         # Acão botão Localizar
         botao_localizar.clicked.connect(self.localizar)
         
