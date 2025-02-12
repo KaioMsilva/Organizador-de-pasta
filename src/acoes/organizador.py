@@ -1,6 +1,6 @@
 import os
-from extensoes import extensoes_arquivo
-from funcoes import *
+from auxiliares.extensoes import extensoes_arquivo
+from auxiliares.funcoes import *
 from tkinter import DISABLED, NORMAL, END
 
 

@@ -1,0 +1,49 @@
+/* *{
+    font-family: "Verdana";
+    font-weight: bold;
+    color: white;
+
+} */
+
+
+
+#layout_principal {
+    background-color: #252B36;
+}
+
+#Formulario_container{
+    background-color: #2c3442;
+    border-radius : 5px;
+}
+
+
+
+#Input_rota{
+    font-size: 10px;
+    padding: 5px;
+    border : none;
+    background-color: #252B36;
+    
+}
+
+#Label_do_input, #Input_rota, #Botao_organizar, #Quadro_de_dados,#Label_versao_sista{
+    color: white;
+    font-size: 15px;
+}
+
+#Botao_localizar{
+    background-color: #252B36;
+    border: none;
+}
+
+
+#Botao_organizar{
+    background-color: #252B36;
+}
+
+/* verificar depois, não funcionou */
+#Quadro_de_dados{
+    border-radius : 5px;
+    background-color: #324261;
+}
+
