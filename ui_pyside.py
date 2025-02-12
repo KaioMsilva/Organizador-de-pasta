@@ -58,6 +58,7 @@ class Organizador(QWidget):
         
         # Texto
         label_input = QLabel("Caminho Pasta")
+        label_input.setObjectName('Label_do_input')
         layout_formulario.addWidget(label_input, alignment=Qt.AlignHCenter)
         
         # Layout Horizontal
@@ -66,7 +67,7 @@ class Organizador(QWidget):
         
         # Input
         self.input_rota = QLineEdit()
-        self.input_rota.setObjectName("Label_input_rota")
+        self.input_rota.setObjectName("Input_rota")
         self.input_rota.setPlaceholderText("Informe o caminho")
         layout_input.addWidget(self.input_rota)
         
@@ -102,6 +103,7 @@ class Organizador(QWidget):
         
         layout_informacoes.addStretch()
         versao = QLabel("V1.0")
+        versao.setObjectName("Label_versao_sista")
         
         layout_informacoes.addWidget(versao, alignment=Qt.AlignHCenter)
         
