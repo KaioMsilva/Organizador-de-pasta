@@ -120,27 +120,6 @@ class Organizador(QWidget):
         
         return layout_informacoes
     
-    # def botoes(self):
-    #     # Layout vertical
-    #     layout_botoes = QVBoxLayout()
-        
-    #     # Titulo Botão localizar pasta
-    #     botao_localizar = QPushButton("")
-    #     # Icone botão
-    #     botao_localizar.setIcon(QIcon("icones/pasta_ carton_vazia.png"))
-    #     # Acão botão Localizar
-    #     botao_localizar.clicked.connect(self.localizar)
-        
-    #     # Titulo bptão Organizar pasta
-    #     botao_organizar = QPushButton("Organizar")
-    #     # Ação botão organizar 
-    #     botao_organizar.clicked.connect(self.organizar_pasta)
-        
-    #     # adiciona Widget ao layout
-    #     layout_botoes.addWidget(botao_localizar)
-    #     layout_botoes.addWidget(botao_organizar)
-    #     return layout_botoes
-    
     def exibir_dados(self):
         # Layout vertical
         layout_saida_dados = QVBoxLayout()
