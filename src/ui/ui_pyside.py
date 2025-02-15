@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QFileDialog, QTextBrowser, QWidget, QVBoxLayout, Q
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
 from acoes.organizador import organiza_pasta
+from os import path
 
 class Organizador(QWidget):
     def __init__(self):
@@ -44,13 +45,13 @@ class Organizador(QWidget):
         form = QVBoxLayout()
         
         # Adicionando outos componentes do formulario
-        form.addLayout(self.input_usuario())
+        form.addLayout(self.area_usuario())
         form.addLayout(self.informacoes_app())
         # form.addLayout(self.botoes())
         return form
     
     
-    def input_usuario(self):
+    def area_usuario(self):
         # container_layout_input = QWidget()
         # container_layout_input.setMaximumHeight(100)
         
@@ -61,31 +62,12 @@ class Organizador(QWidget):
         label_input.setObjectName('Label_do_input')
         layout_formulario.addWidget(label_input, alignment=Qt.AlignHCenter)
         
-        # Layout Horizontal
-        layout_input = QHBoxLayout()
+        # Input do usuario
+        layout_input = self.input_usuario()
+        layout_formulario.addWidget(layout_input)
         
         
-        # Input
-        self.input_rota = QLineEdit()
-        self.input_rota.setObjectName("Input_rota")
-        self.input_rota.setPlaceholderText("Informe o caminho")
-        layout_input.addWidget(self.input_rota)
-        
-        
-        # Titulo Botão localizar pasta
-        botao_localizar = QPushButton("")
-        botao_localizar.setObjectName("Botao_localizar")
-        # Icone botão
-        botao_localizar.setIcon(QIcon("src/assets/pasta_carton_vazia.png"))
-        # Acão botão Localizar
-        botao_localizar.clicked.connect(self.localizar)
-        
-        # adiciona Widget ao layout
-        layout_input.addWidget(botao_localizar)
-        layout_formulario.addLayout(layout_input)
-        
-        
-        # Titulo bptão Organizar pasta
+        # Titulo botão Organizar pasta
         botao_organizar = QPushButton("Organizar")
         botao_organizar.setObjectName("Botao_organizar")
         botao_organizar.setFixedSize(100,35)
@@ -97,6 +79,35 @@ class Organizador(QWidget):
         # return layout_input
         return layout_formulario
     
+    def input_usuario(self):
+        layout_container = QWidget()
+        layout_container.setMinimumWidth(30)
+        layout_container.setMaximumHeight(40)
+        layout_container.setObjectName("Layout_input_usuario")
+
+        # Layout Horizontal
+        layout_input = QHBoxLayout()
+        
+        # Input
+        self.input_rota = QLineEdit()
+        self.input_rota.setObjectName("Input_rota")
+        self.input_rota.setPlaceholderText("Informe o caminho")
+        layout_input.addWidget(self.input_rota)
+        
+        # Titulo Botão localizar pasta
+        botao_localizar = QPushButton("")
+        botao_localizar.setObjectName("Botao_localizar")
+        # Icone botão
+        botao_localizar.setIcon(QIcon("src/assets/pasta_carton_vazia.png"))
+        # Acão botão Localizar
+        botao_localizar.clicked.connect(self.localizar)
+        
+        # adiciona Widget ao layout
+        layout_input.addWidget(botao_localizar)
+
+
+        layout_container.setLayout(layout_input)
+        return layout_container
     
     def informacoes_app(self):
         layout_informacoes = QVBoxLayout()
@@ -154,11 +165,18 @@ class Organizador(QWidget):
         # Get caminho 
         caminho = self.input_rota.text()
         
+        
         # Verifica se caminho não é vazio
-        if caminho:
+        if len(caminho) != 0 and path.isdir(caminho):
             organiza_pasta(caminho,self.quadro_de_dados)
+           
+        elif len(caminho) == 0:
+            QMessageBox.warning(self,"Caminho invalido", "Caminho não pode ser vazio")
+            
         else:
-            QMessageBox.warning(self,"Caminho invalido", "Informe um caminho valido")
+            QMessageBox.warning(self,"Caminho invalido", f"Caminho: '{caminho}' Não existe ")
+            
+        
             
             
             

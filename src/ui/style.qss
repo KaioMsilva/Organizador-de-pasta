@@ -19,16 +19,17 @@
 
 
 #Input_rota{
-    font-size: 10px;
+    font-size: 13px;
     padding: 5px;
     border : none;
     background-color: #252B36;
+    color: rgba(230, 243, 255, 0.349);
     
 }
 
-#Label_do_input, #Input_rota, #Botao_organizar, #Quadro_de_dados,#Label_versao_sista{
+#Label_do_input, #Botao_organizar, #Quadro_de_dados,#Label_versao_sista{
     color: white;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 #Botao_localizar{
@@ -45,5 +46,10 @@
 #Quadro_de_dados{
     border-radius : 5px;
     background-color: #324261;
+    padding: 10px;
 }
 
+#Layout_input_usuario{
+    background-color:  #252B36;
+    border-radius: 5px;
+}
