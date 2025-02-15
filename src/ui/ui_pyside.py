@@ -3,6 +3,7 @@ from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
 from acoes.organizador import organiza_pasta
 from os import path
+from ui.configuracoes import Menu_configuracoes
 
 class Organizador(QWidget):
     def __init__(self):
@@ -115,11 +116,20 @@ class Organizador(QWidget):
         layout_informacoes.addStretch()
         versao = QLabel("V1.0")
         versao.setObjectName("Label_versao_sista")
-        
         layout_informacoes.addWidget(versao, alignment=Qt.AlignHCenter)
         
+        # Botão configurações
+        botao_configuracoes = QPushButton("")
+        botao_configuracoes.setIcon(QIcon("src/assets/pasta_caton.png"))
+        
+        self.tela_configuracao = Menu_configuracoes(self)
+        self.tela_configuracao.setWindowModality(Qt.ApplicationModal)
+        botao_configuracoes.clicked.connect(self.tela_configuracao.exec)
+        layout_informacoes.addWidget(botao_configuracoes)
+        
         return layout_informacoes
-    
+        
+        
     def exibir_dados(self):
         # Layout vertical
         layout_saida_dados = QVBoxLayout()
@@ -155,10 +165,3 @@ class Organizador(QWidget):
         else:
             QMessageBox.warning(self,"Caminho invalido", f"Caminho: '{caminho}' Não existe ")
             
-        
-            
-            
-            
-            
-            
-# Tenho que testar caminho errado pra ver oq vai dar
