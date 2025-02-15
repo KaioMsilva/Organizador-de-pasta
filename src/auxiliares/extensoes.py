@@ -14,7 +14,7 @@ extensoes_arquivo = {
     ".ods" : "texto",
     ".png" : "imagem",
     ".jpeg": "imagem",
-    ".jpg" : "imagem",
+    ".JPG" : "imagem",
     ".zip" : "compactado",
     ".rar" : "compactado",
     ".dll" : "configuração",
