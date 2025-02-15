@@ -111,8 +111,12 @@ class Organizador(QWidget):
         return layout_container
     
     def informacoes_app(self):
-        layout_informacoes = QVBoxLayout()
+        container_layout_informacoes = QVBoxLayout()
+        layout_informacoes = QHBoxLayout()
         
+        container_layout_informacoes.addStretch()
+        
+        # Label versao
         layout_informacoes.addStretch()
         versao = QLabel("V1.0")
         versao.setObjectName("Label_versao_sista")
@@ -120,14 +124,19 @@ class Organizador(QWidget):
         
         # Botão configurações
         botao_configuracoes = QPushButton("")
-        botao_configuracoes.setIcon(QIcon("src/assets/pasta_caton.png"))
-        
+        botao_configuracoes.setObjectName("Botao_configuracoes")
+        botao_configuracoes.setIcon(QIcon("src/assets/engrenagem/engrenagem_cartum.png"))
+        layout_informacoes.addWidget(botao_configuracoes)
+        layout_informacoes.addStretch()
+        # Ação botão configurações
         self.tela_configuracao = Menu_configuracoes(self)
         self.tela_configuracao.setWindowModality(Qt.ApplicationModal)
         botao_configuracoes.clicked.connect(self.tela_configuracao.exec)
-        layout_informacoes.addWidget(botao_configuracoes)
         
-        return layout_informacoes
+        
+        container_layout_informacoes.addLayout(layout_informacoes)
+        
+        return container_layout_informacoes
         
         
     def exibir_dados(self):
